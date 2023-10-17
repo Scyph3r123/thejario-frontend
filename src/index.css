@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@200;400;500;600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.tr-link {
+    @apply text-[22px] md:text-[28px] py-1 md:py-2 inline-flex items-center space-x-2 text-primary transition-colors relative
+}
+.tr-link:after {
+    content: "";
+    width: 0;
+    height: 3px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    @apply bg-primary transition-all
+}
+.tr-link:hover:after {
+    width: 100%;
+}
+.social-links {
+    @apply list-none flex space-x-2
+}
+.social-links a {
+    @apply hover:text-primary
+}
