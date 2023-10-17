@@ -3,6 +3,6 @@ import react from '@vitejs/plugin-react'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/tr-frontend/',
+  base: '/thejario-frontend/',
   plugins: [react()],
 })
