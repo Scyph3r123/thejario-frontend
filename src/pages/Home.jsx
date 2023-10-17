@@ -46,7 +46,7 @@ const Home = () => {
             <motion.img
             style={{y: bannerImg}}
             animate={{y: ['-50%', '0%'], transition:{duration: 1}}}
-            src={profile} alt="Theja Rio" className=' pointer-events-none absolute top-0 z-0 w-[500px] left-1/2 -ml-[250px] mt-[50px]' />
+            src={profile} alt="Theja Rio" className=' pointer-events-none absolute top-0 z-0 w-full md:w-[500px] left-1/2 -ml-[250px] mt-[50px]' />
             <motion.div
             style={{scale: scaleText,y: bannerText, opacity: [bannerText, '0%']}}
             className="m-auto uppercase leading-tight text-center z-10">

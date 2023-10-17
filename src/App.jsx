@@ -35,6 +35,7 @@ function App() {
           <Navbar clickHandler={clickHandler} menuActive={menuActive}/>
           <Routes>
             <Route exact path="/" element={<Home/>} />
+            <Route exact path="/thejario-frontend" element={<Home/>} />
             <Route exact path="/projects" element={<Projects/>} />
             <Route path="*" element={<ErrorPage/>} />
           </Routes>
