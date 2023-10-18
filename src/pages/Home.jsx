@@ -42,7 +42,7 @@ const Home = () => {
 
   return (
     <>
-        <div className='min-h-screen flex relative z-10' ref={banner}>
+        <div className='min-h-screen flex relative z-10 overflow-hidden' ref={banner}>
             <motion.img
             style={{y: bannerImg}}
             animate={{y: ['-50%', '0%'], transition:{duration: 1}}}
