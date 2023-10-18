@@ -19,7 +19,7 @@
     width: 100%;
 }
 .social-links {
-    @apply list-none flex space-x-2
+    @apply list-none flex space-x-2 justify-center
 }
 .social-links a {
     @apply hover:text-primary

@@ -16,7 +16,7 @@ const Menu = ({closeMenu, menuActive}) => {
             animate={{ opacity: 1, y: 0, transition: {ease: "easeOut", duration: 0.5}}}
             exit={{ opacity: 0, y: '-100%', transition: {delay: 0.05, duration: 0.5}}}
             className='fixed top-0 left-0 z-40 w-full h-full bg-black overflow-hidden text-center flex flex-col py-20'>
-                <nav className='flex flex-col text-8xl space-y-2 font-extrabold tracking-tight leading-tight m-auto'>
+                <nav className='flex flex-col text-[70px] md:text-[90px lg:text-[120px] space-y-2 font-extrabold tracking-tight leading-tight m-auto'>
                     <NavLink
                         onClick={handleCloseMenu}
                         to="/"

@@ -36,8 +36,8 @@ const Projects = () => {
     <>
       <div className='min-h-screen flex mb-10'>
         <div className="container m-auto px-3">
-          <div className="w-1/2 mx-auto text-center">
-            <h1 className='text-[94px] md:text-[150px] leading-none mb-8 md:mb-16 tracking-tight'>Projects</h1>
+          <div className="md:w-2/3 lg:w-1/2 mx-auto text-center">
+            <h1 className='text-[94px] md:text-[100px] lg:text-[130px] leading-none mb-8 md:mb-16 tracking-tight'>Projects</h1>
             <p className='font-medium leading-relaxed text-xl'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem vel quibusdam delectus sit neque nihil officiis dolor magni molestias suscipit laboriosam, fuga dolores, ratione facere quasi impedit odio debitis quam.</p>
           </div>
         </div>

@@ -46,12 +46,12 @@ const Home = () => {
             <motion.img
             style={{y: bannerImg}}
             animate={{y: ['-50%', '0%'], transition:{duration: 1}}}
-            src={profile} alt="Theja Rio" className=' pointer-events-none absolute top-0 z-0 w-full md:w-[500px] left-1/2 -ml-[250px] mt-[50px]' />
+            src={profile} alt="Theja Rio" className=' pointer-events-none absolute z-0 w-[500px] left-1/2 -ml-[250px] top-1/2 -mt-[375px]' />
             <motion.div
             style={{scale: scaleText,y: bannerText, opacity: [bannerText, '0%']}}
             className="m-auto uppercase leading-tight text-center z-10">
-                <div className="font-light text-4xl md:text-6xl leading-none">I'm</div>
-                <div className="font-thin text-[100px] md:text-[120px] lg:text[170px] xl:text-[200px] text-primary leading-none">
+                <div className="font-light text-[36px] md:text-[40px] lg:text-[46px] xl:text-[50px] leading-none">I'm</div>
+                <div className="font-thin text-[130px] md:text-[150px] lg:text[170px] xl:text-[200px] text-primary leading-none">
                   <span className='overflow-hidden block'>
                     <motion.span
                     className='inline-block font-title'
@@ -59,7 +59,7 @@ const Home = () => {
                     >Theja Rio</motion.span>
                   </span>
                 </div>
-                <p className='text-[18px] md:text-[24px] lg:text-[28px] opacity-80 leading-none mb-5'>i am a writer/director based in London</p>
+                <p className='text-[18px] md:text-[20px] lg:text-[20px] xl:text-[26px] opacity-80 leading-none mb-5'>i am a writer/director based in London</p>
                 <motion.button
                 whileHover='hover'
                 type='button' className='w-24 h-24 inline-flex items-center justify-center bg-gray-700' onClick={scrollToStart}>

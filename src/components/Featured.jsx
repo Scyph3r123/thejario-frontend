@@ -69,13 +69,13 @@ const Featured = ({startSection}) => {
                 opacity: textIsInView ? 1 : 0,
                 transition: "all 2s cubic-bezier(0.17, 0.55, 0.55, 1) 0.3s"
               }}
-              className='text-[94px] md:text-[150px] leading-none mb-8 md:mb-16 tracking-tight'>Project name</motion.h3>
+              className='text-[80px] md:text-[100px] lg:text-[120px] leading-none mb-8 md:mb-16 tracking-tight'>Project name</motion.h3>
               <motion.p
               style={{
                 opacity: textIsInView ? 1 : 0,
                 transition: "all 2s cubic-bezier(0.17, 0.55, 0.55, 1) 0.6s"
               }}
-              className='text-xl only:md:text-2xl font-semibold leading-relaxed text-gray-300'>Project Description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem necessitatibus inventore maiores earum voluptatibus dolorum ipsam, quisquam possimus quos consequatur at harum molestias reprehenderit, repellat quas, quod rem officia repudiandae?</motion.p>
+              className='text-xl md:text-2xl font-semibold leading-relaxed text-gray-300'>Project Description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem necessitatibus inventore maiores earum voluptatibus dolorum ipsam, quisquam possimus quos consequatur at harum molestias reprehenderit, repellat quas, quod rem officia repudiandae?</motion.p>
             </div>
           </div>
         </div>
