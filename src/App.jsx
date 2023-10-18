@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
+import React, { useEffect, useState } from 'react'
+import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom"
 import Footer from "./components/Footer"
 import Navbar from "./components/navbar"
 import Menu from "./components/Menu"
@@ -16,6 +16,11 @@ const client = new ApolloClient({
 
 function App() {
   
+  const { pathname } = useLocation()
+  useEffect(() => {
+    window.scrollTo({top:0})
+  },[pathname])
+
   const [menuActive, setMenuActive] = useState(false)
   function clickHandler() {
     if (menuActive){
@@ -30,19 +35,17 @@ function App() {
 
   return (
     <>
-      <Router basename="/">
-        <ApolloProvider client={client}>
-          <Navbar clickHandler={clickHandler} menuActive={menuActive}/>
-          <Routes>
-            <Route exact path="/" element={<Home/>} />
-            <Route exact path="/thejario-frontend" element={<Home/>} />
-            <Route exact path="/projects" element={<Projects/>} />
-            <Route path="*" element={<ErrorPage/>} />
-          </Routes>
-          <Menu key='menuModal' closeMenu={closeMenu} menuActive={menuActive}/>
-          <Footer/>
-        </ApolloProvider>
-      </Router>
+      <ApolloProvider client={client}>
+        <Navbar clickHandler={clickHandler} menuActive={menuActive}/>
+        <Routes>
+          <Route exact path="/" element={<Home/>} />
+          <Route exact path="/thejario-frontend" element={<Home/>} />
+          <Route exact path="/projects" element={<Projects/>} />
+          <Route path="*" element={<ErrorPage/>} />
+        </Routes>
+        <Menu key='menuModal' closeMenu={closeMenu} menuActive={menuActive}/>
+        <Footer/>
+      </ApolloProvider>
     </>
   )
 }

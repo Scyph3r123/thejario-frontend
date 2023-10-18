@@ -45,9 +45,9 @@ const About = () => {
                     className="md:w-1/2 space-y-6 md:space-y-8 text-lg md:text-xl leading-relaxed font-medium">
                         <p>Theja Rio is a writer/director based in London. His work has been screened in multiple Oscar-qualifying and BAFTA-qualifying film festivals around the world.</p>
                         <p>His first short film was shot in Sicily, Italy(2015), where his script was chosen and invited. Under the mentorship of industry professionals such as Manuel Alberto Claro(DOP), his film was produced and played film festivals around Europe.</p>
-                        <p>His short film Angh went on to play prestigious film festivals such as Clermont Ferrand and Palm Springs, and winning an award in Clermont. Angh has been taught in lectures in art galleries in France.</p>
                         <p>He has shot multiple short films in both 16mm film and 35mm film. Currently he is studying MA Directing Fiction at the National Film & Television School.</p>
-                        <h2 className='text-4xl font-bold tracking-tight'>Awards</h2>
+                        <h2 className='text-4xl font-bold tracking-tight mb-5'>Awards.</h2>
+                        <p className=''>His short film Angh went on to play prestigious film festivals such as Clermont Ferrand and Palm Springs, and winning an award in Clermont. Angh has been taught in lectures in art galleries in France.</p>
                     </motion.div>
                 </div>
             </div>

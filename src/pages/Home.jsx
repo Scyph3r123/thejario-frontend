@@ -38,17 +38,17 @@ const Home = () => {
   const bannerImg = useTransform(scrollYProgress, [0, 1.5], ['0%', '100%'])
   const bannerText = useTransform(scrollYProgress, [0, 1], ['0%', '-100%'])
   const scaleText = useTransform(scrollYProgress, [0, 1], ['100%', '160%'])
-  // const scrollOpacity = useTransform(scrollYProgress, [0, 1], [1, 0])
+  const scrollOpacity = useTransform(scrollYProgress, [0, 1], [1, 0])
 
   return (
     <>
-        <div className='min-h-screen flex relative z-10 overflow-hidden' ref={banner}>
+        <div className='min-h-screen flex relative z-10' ref={banner}>
             <motion.img
             style={{y: bannerImg}}
             animate={{y: ['-50%', '0%'], transition:{duration: 1}}}
             src={profile} alt="Theja Rio" className=' pointer-events-none absolute z-0 w-[500px] left-1/2 -ml-[250px] top-1/2 -mt-[375px]' />
             <motion.div
-            style={{scale: scaleText,y: bannerText, opacity: [bannerText, '0%']}}
+            style={{opacity: scrollOpacity, y: bannerText}}
             className="m-auto uppercase leading-tight text-center z-10">
                 <div className="font-light text-[36px] md:text-[40px] lg:text-[46px] xl:text-[50px] leading-none">I'm</div>
                 <div className="font-thin text-[130px] md:text-[150px] lg:text[170px] xl:text-[200px] text-primary leading-none">

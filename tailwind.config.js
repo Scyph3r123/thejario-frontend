@@ -13,7 +13,11 @@ export default {
       'body' : ['Inter', 'Helvetica', 'sans-serif'],
       'title' : ['Bebas Neue', 'sans-serif']
     },
-    extend: {},
+    extend: {
+      boxShadow: {
+        'heavy' : '0px 0px 46px 32px rgba(0,0,0,0.3);'
+      }
+    },
   },
   plugins: [
     require('flowbite/plugin')
