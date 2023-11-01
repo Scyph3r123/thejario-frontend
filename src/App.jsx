@@ -32,7 +32,7 @@ function App() {
   function closeMenu(){
     setMenuActive(false)
   }
-
+  
   return (
     <>
       <ApolloProvider client={client}>

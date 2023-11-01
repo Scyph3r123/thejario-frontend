@@ -8,9 +8,9 @@ const Navbar = ({clickHandler, menuActive}) => {
     clickHandler(false)
   }
   return (
-    <div className='fixed w-full top-0 left-0 z-50 py-5 h-[100px]'>
+    <div className='fixed w-full top-0 left-0 z-50 py-3 md:py-5 h-[100px]'>
       <div className="container mx-auto px-3">
-        <div className="flex justify-between">
+        <div className="flex justify-between items-center">
           <Link to={'/'}><img src={logo} alt="logo" className='w-[50px] '/></Link>
           <button type='button' className='p-2' onClick={handleClickHandler}>
             <AnimatePresence>

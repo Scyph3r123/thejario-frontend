@@ -53,7 +53,6 @@ const Featured = ({startSection}) => {
     offset: ['start start','end end']
   })
   const scrollingBar = useTransform(scrollYProgress, [1, 0], ['0%', '-10%'])
-  console.log(scrollYProgress)
 
   return (
     <div className='min-h-screen flex flex-col py-20 relative z-20' ref={startSection}>
