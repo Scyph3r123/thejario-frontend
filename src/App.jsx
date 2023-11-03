@@ -11,7 +11,7 @@ import SingleProject from './pages/SingleProject'
 
 //apollo client
 const client = new ApolloClient({
-  uri: 'http://localhost:1337/graphql',
+  uri: 'https://manage.thejario.com/graphql',
   cache: new InMemoryCache(),
 })
 

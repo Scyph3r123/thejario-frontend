@@ -35,7 +35,7 @@ const Featured = ({startSection}) => {
   const scrollingBar = useTransform(scrollYProgress, [1, 0], ['0%', '-10%'])
   
   const { loading, error, data } = useQuery(FEATUREDPROJECT, {
-    variables: { projectId: 3 }
+    variables: { projectId: 1 }
   })
 
   if (loading) return <p>Loading...</p>
@@ -49,7 +49,7 @@ const Featured = ({startSection}) => {
             <div className="xl:w-3/4 mx-auto relative z-10 flex flex-col lg:flex-row items-center">
               <img src={`http://localhost:1337${data.project.data.attributes.featured_image.data.attributes.formats.large.url}`} alt={`${data.project.data.attributes.title} poster`} className='mb-5 shadow-heavy w-[500px] inline-block' />
               
-              <div className='md:max-w-[700px] bg-black bg-opacity-70 lg:p-10 p-6 lg:-ml-20 -mt-[200px] lg:mt-0'>
+              <div className='md:max-w-[700px] bg-black bg-opacity-80 lg:p-10 p-6 lg:-ml-20 -mt-[200px] lg:mt-0'>
                 <div className='text-primary uppercase tracking-widest mb-5'>Featured project</div>
                 <h3 className='text-[80px] md:text-[100px] lg:text-[120px] leading-none mb-8 md:mb-10 tracking-tight'>{data.project.data.attributes.title}</h3>
                 <p className='text-xl md:text-xl font-semibold leading-relaxed text-gray-200 mb-10'>

@@ -37,8 +37,9 @@ const Projects = () => {
       <div className='min-h-[70vh] flex mb-10 py-20'>
         <div className="container m-auto px-3">
           <div className="md:w-2/3 lg:w-1/2 mx-auto text-center">
-            <h1 className='text-[70px] md:text-[100px] lg:text-[130px] leading-none mb-8 md:mb-16 tracking-tight'>Projects</h1>
-            <p className='font-medium leading-relaxed text-xl'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem vel quibusdam delectus sit neque nihil officiis dolor magni molestias suscipit laboriosam, fuga dolores, ratione facere quasi impedit odio debitis quam.</p>
+            <div className='text-primary uppercase tracking-widest mb-5'>Projects</div>
+            <h1 className='text-[70px] md:text-[100px] lg:text-[130px] leading-none mb-8 md:mb-8 tracking-tight'>Short Films</h1>
+            <p className='font-light leading-relaxed text-xl text-gray-300'>Hey there! I'm thrilled to have you here, exploring the culmination of my passion and hard work over the years. This project page is a glimpse into the various adventures I've embarked upon, each one a unique journey in its own right.</p>
           </div>
         </div>
       </div>
@@ -48,10 +49,10 @@ const Projects = () => {
             <swiper-container slides-per-view="1" speed="1000" space-between="30px" autoplay="true"  navigation="true">
               {data.projects.data.map(project => (
                 <swiper-slide key={project.id}>
-                  <div className="flex flex-col lg:flex-row gap-10 items-center relative">
+                  <div className="flex flex-col lg:flex-row gap-5 items-center relative">
                     <img className='h-[720px]' src={`http://localhost:1337${project.attributes.featured_image.data?.attributes.formats.medium.url}`} alt="" />
                     <div className='absolute lg:relative bottom-0 left-0 p-6 bg-black bg-opacity-60'>
-                      <h3 className='mb-5 text-[40px] leading-[50px] lg:text-[100px] lg:leading-[100px]'>{project.attributes.title}</h3>
+                      <h3 className='mb-5 text-[40px] leading-[50px] lg:text-[70px] lg:leading-[70px]'>{project.attributes.title}</h3>
                       <p className='mb-5 lg:text-xl'>{project.attributes.description.slice(0, 250)}...</p>
                       <Link to={`/projects/${project.id}`} className='text-primary font-medium inline-flex items-center'>
                         Read more

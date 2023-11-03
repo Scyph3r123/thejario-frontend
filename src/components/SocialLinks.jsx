@@ -34,7 +34,7 @@ const SocialLinks = ({className}) => {
     return (
         <nav className={`social-links ${className}`}>
             {data.socials.data.map(social=>(
-                <a key={social.id} href={`${social.attributes.url}`}>
+                <a key={social.id} href={`${social.attributes.url}`} target='_blank'>
                     {socialIcons[social.attributes.platforms.toLowerCase()]}
                 </a>
             ))}
