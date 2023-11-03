@@ -27,12 +27,10 @@ const PROJECTS = gql`
 `
 
 const Projects = () => {
-  const { loading, error, data } = useQuery(PROJECTS)
 
+  const { loading, error, data } = useQuery(PROJECTS)
   if (loading) return <p>Loading...</p>
   if (error) return <p>Error :(</p>
-
-  console.log(data)
 
   return (
     <>
@@ -46,18 +44,18 @@ const Projects = () => {
       </div>
       <div className="pb-20">
         <div className="container mx-auto">
-          <div className="lg:w-2/3 mx-auto">
-            <swiper-container slides-per-view="1" space-between="30px">
+          <div className="md:w-2/3 mx-auto">
+            <swiper-container slides-per-view="1" speed="1000" space-between="30px" autoplay="true"  navigation="true">
               {data.projects.data.map(project => (
                 <swiper-slide key={project.id}>
                   <div className="flex flex-col lg:flex-row gap-10 items-center relative">
-                    <img className='h-[720px]' src={`http://localhost:1337${project.attributes.featured_image.data.attributes.formats.medium.url}`} alt="" />
+                    <img className='h-[720px]' src={`http://localhost:1337${project.attributes.featured_image.data?.attributes.formats.medium.url}`} alt="" />
                     <div className='absolute lg:relative bottom-0 left-0 p-6 bg-black bg-opacity-60'>
                       <h3 className='mb-5 text-[40px] leading-[50px] lg:text-[100px] lg:leading-[100px]'>{project.attributes.title}</h3>
                       <p className='mb-5 lg:text-xl'>{project.attributes.description.slice(0, 250)}...</p>
                       <Link to={`/projects/${project.id}`} className='text-primary font-medium inline-flex items-center'>
                         Read more
-                        <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 w-7 h-7" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l14 0" /><path d="M15 16l4 -4" /><path d="M15 8l4 4" /></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" className="ml-2 w-7 h-7" width="44" height="44" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l14 0" /><path d="M15 16l4 -4" /><path d="M15 8l4 4" /></svg>
                       </Link>
                     </div>
                   </div>

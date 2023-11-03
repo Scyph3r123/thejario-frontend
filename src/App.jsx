@@ -7,6 +7,7 @@ import Home from "./pages/Home"
 import Projects from "./pages/Projects"
 import ErrorPage from './pages/ErrorPage'
 import { ApolloClient, InMemoryCache, ApolloProvider, gql } from '@apollo/client';
+import SingleProject from './pages/SingleProject'
 
 //apollo client
 const client = new ApolloClient({
@@ -40,7 +41,8 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home/>} />
           <Route exact path="/thejario-frontend" element={<Home/>} />
-          <Route exact path="/projects" element={<Projects/>} />
+          <Route exact path="/projects" element={<Projects/>}/>
+          <Route exact path="/projects/:id" element={<SingleProject/>} />
           <Route path="*" element={<ErrorPage/>} />
         </Routes>
         <Menu key='menuModal' closeMenu={closeMenu} menuActive={menuActive}/>

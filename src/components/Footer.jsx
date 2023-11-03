@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import SocialLinks from './SocialLinks'
 
 const Footer = () => {
+
+
   return (
     <div className='py-10'>
       <div className="container mx-auto px-3 text-gray-400">
