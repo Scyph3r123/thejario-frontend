@@ -1,25 +1,8 @@
 import { motion } from 'framer-motion'
-import { gql, useQuery } from '@apollo/client'
 import Markdown from 'react-markdown'
 
-const ABOUT = gql`
-    query GetAbout {
-        about {
-            data {
-                attributes {
-                Title
-                description
-                }
-            }
-        }
-    }
-`
 
-const About = () => {
-
-    const { loading, error, data } = useQuery(ABOUT)
-    if (loading) return <p>Loading...</p>
-    if (error) return <p>Error</p>
+const About = ({data}) => {
 
     return (
         <div className='min-h-screen flex py-20'>

@@ -1,6 +1,8 @@
 import { gql, useQuery } from '@apollo/client'
 import React from 'react'
 import { Link, useParams } from 'react-router-dom'
+import basePath from '../assets/basepath'
+
 const PROJECT = gql`
     query GetProject($projectId: ID) {
         projects {
@@ -62,7 +64,7 @@ const SingleProject = () => {
                         <div className="flex flex-col lg:flex-row gap-10 items-center">
                             <div className='flex-shrink-0 lg:mb-0 -mb-[200px] relative z-10'>
                                 <div className="z-10 absolute w-full h-full bg-gradient-to-t from-black via-transparent to-transparent lg:hidden"></div>
-                                <img className='lg:w-[500px] relative z-0 pointer-events-none' src={`http://localhost:1337${data.project.data.attributes.featured_image.data?.attributes.url}`} alt="" />
+                                <img className='lg:w-[500px] relative z-0 pointer-events-none' src={`${basePath}${data.project.data.attributes.featured_image.data?.attributes.url}`} alt="" />
                             </div>
                             <div className='relative z-20'>
                                 <h1 className='font-bold text-[90px] leading-none mb-5'>{data.project.data.attributes.title}</h1>
@@ -77,7 +79,7 @@ const SingleProject = () => {
                     <ul className='grid gap-10'>
                         {data.project.data.attributes.images.data.map(image => (
                             <li key={image.id}>
-                                <img className='w-full h-auto pointer-events-none' src={`http://localhost:1337${image.attributes.formats.large.url}`} alt="" />
+                                <img className='w-full h-auto pointer-events-none' src={`${basePath}${image.attributes.formats.large.url}`} alt="" />
                             </li>
                         ))}
                     </ul>

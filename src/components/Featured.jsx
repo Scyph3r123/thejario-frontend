@@ -1,31 +1,9 @@
-import React, { useEffect, useRef } from 'react'
-import featured from '../assets/featured-1.jpg'
+import React, { useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { motion, useInView, useScroll, useTransform } from 'framer-motion'
-import { gql, useQuery } from '@apollo/client'
+import { motion, useScroll, useTransform } from 'framer-motion'
+import basePath from '../assets/basepath'
 
-const FEATUREDPROJECT = gql`
-  query getFeaturedProject($projectId: ID) {
-    project(id: $projectId){
-      data {
-        id
-        attributes {
-          title
-          featured
-          description
-          featured_image {
-            data {
-              attributes {
-                formats
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`
-const Featured = ({startSection}) => {
+const Featured = ({startSection, data}) => {
 
   const movingBar = useRef(null)
   const { scrollYProgress } = useScroll({
@@ -33,13 +11,6 @@ const Featured = ({startSection}) => {
     offset: ['start start','end end']
   })
   const scrollingBar = useTransform(scrollYProgress, [1, 0], ['0%', '-10%'])
-  
-  const { loading, error, data } = useQuery(FEATUREDPROJECT, {
-    variables: { projectId: 1 }
-  })
-
-  if (loading) return <p>Loading...</p>
-  if (error) return <p>Error :(</p>
 
   return (
     <div className='min-h-screen flex flex-col py-20 relative z-20' ref={startSection}>
@@ -47,7 +18,7 @@ const Featured = ({startSection}) => {
         <div className="relative overflow-hidden">
           <div className="container mx-auto px-3">
             <div className="xl:w-3/4 mx-auto relative z-10 flex flex-col lg:flex-row items-center">
-              <img src={`http://localhost:1337${data.project.data.attributes.featured_image.data.attributes.formats.large.url}`} alt={`${data.project.data.attributes.title} poster`} className='mb-5 shadow-heavy w-[500px] inline-block' />
+              <img src={`${basePath}${data.project.data.attributes.featured_image.data.attributes.formats.large.url}`} alt={`${data.project.data.attributes.title} poster`} className='mb-5 shadow-heavy w-[500px] inline-block' />
               
               <div className='md:max-w-[700px] bg-black bg-opacity-80 lg:p-10 p-6 lg:-ml-20 -mt-[200px] lg:mt-0'>
                 <div className='text-primary uppercase tracking-widest mb-5'>Featured project</div>

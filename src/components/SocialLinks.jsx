@@ -27,19 +27,19 @@ const socialIcons = {
 
 const SocialLinks = ({className}) => {
     
-    const { loading, error, data } = useQuery(SOCIAL)
-    if (loading) return <p>Loading...</p>
-    if (error) return <p>Error :(</p>
-
-    return (
-        <nav className={`social-links ${className}`}>
-            {data.socials.data.map(social=>(
-                <a key={social.id} href={`${social.attributes.url}`} target='_blank'>
-                    {socialIcons[social.attributes.platforms.toLowerCase()]}
-                </a>
-            ))}
-        </nav>
-    )
+  const { loading, error, data } = useQuery(SOCIAL)
+  if (loading) return <p>Loading...</p>
+  if (error) return <p>Error :(</p>
+  
+  return (
+      <nav className={`social-links ${className}`}>
+          {data.socials.data.map(social=>(
+              <a key={social.id} href={`${social.attributes.url}`} target='_blank'>
+                  {socialIcons[social.attributes.platforms.toLowerCase()]}
+              </a>
+          ))}
+      </nav>
+  )
 }
 
 export default SocialLinks

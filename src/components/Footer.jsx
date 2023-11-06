@@ -20,8 +20,6 @@ const Footer = () => {
   if (loading) return <p>Loading...</p>
   if (error) return <Error/>
 
-  console.log(data)
-
   return (
     <div className='py-10'>
       <div className="container mx-auto px-3 text-gray-500">
