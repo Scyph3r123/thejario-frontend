@@ -9,6 +9,8 @@ import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import 'swiper/scss';
 import 'swiper/scss/navigation';
 import 'swiper/scss/pagination';
+import transition from '../transition'
+import { Helmet } from 'react-helmet';
 
 const PROJECTS = gql`
   query GetProjects {
@@ -22,7 +24,7 @@ const PROJECTS = gql`
           featured_image {
             data {
               attributes {
-                url
+                formats
               }
             }
           }
@@ -36,10 +38,21 @@ const Projects = () => {
   const { loading, error, data } = useQuery(PROJECTS)
   if (loading) return <p>Loading...</p>
   if (error) return <p>Error :(</p>
-
+  
   return (
     <>
-      <div className='min-h-[70vh] flex mb-10 py-20'>
+      <Helmet>
+        <title>Theja Rio Projects</title>
+        <meta name="description" content="Welcome to Theja Rio's projects page. Browse through a list of projects successfully undertaken and completed by Theja Rio." />
+        <meta name="keywords" content="Writer, Director, Nagaland, Short Films, Film festivals, Portfolio, Films" />
+      </Helmet>
+      <div
+        key='projects'
+        initial={{ opacity: 0, transition:{ duration: 2 } }}
+        animate={{ opacity: 1, transition:{ duration: 2 } }}
+        exit={{ opacity: 0, transition:{ duration: 2 } }}
+        className='min-h-[70vh] flex mb-10 py-20'
+      >
         <div className="container m-auto px-3">
           <div className="md:w-2/3 lg:w-1/2 mx-auto text-center">
             <motion.div
@@ -74,7 +87,7 @@ const Projects = () => {
                   {({ isActive }) => (
                     <motion.div
                     className="flex flex-col lg:flex-row gap-5 items-center">
-                      <img className='md:h-[720px]' src={`${basePath}${project.attributes.featured_image.data?.attributes.url}`} alt={`${project.attributes.title} cover`} />
+                      <img className='md:h-[720px]' src={`${basePath}${project.attributes.featured_image.data?.attributes.formats.medium.url}`} alt={`${project.attributes.title} cover`} />
                       <div className='lg:relative bottom-full left-0 p-6 bg-black bg-opacity-60'>
                         <motion.h3
                         animate={{opacity: isActive ? 1 : 0, y: isActive ? 0 : 50}}
@@ -105,4 +118,4 @@ const Projects = () => {
     </>
   )
 }
-export default Projects
+export default transition(Projects)

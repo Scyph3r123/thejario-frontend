@@ -2,6 +2,8 @@ import { gql, useQuery } from '@apollo/client'
 import React from 'react'
 import { Link, useParams } from 'react-router-dom'
 import basePath from '../assets/basepath'
+import transition from '../transition'
+import { Helmet } from 'react-helmet'
 
 const PROJECT = gql`
     query GetProject($projectId: ID) {
@@ -18,7 +20,7 @@ const PROJECT = gql`
                     featured_image {
                         data {
                             attributes {
-                                url
+                                formats
                             }
                         }
                     }
@@ -50,7 +52,13 @@ const SingleProject = () => {
 
     return (
         <>
-            <div className="pt-[150px]">
+            <Helmet>
+                <title>Theja Rio: {data.project.data.attributes.title}</title>
+                meta
+                <meta name="description" content={data.project.data.attributes.description} />
+                <meta name="keywords" content="Short Film, Theja Rio, Film Details, Project Details" />
+            </Helmet>
+            <div className="pt-[100px]">
                 <div className="container mx-auto px-3">
                     <Link className='font-medium text-primary inline-flex items-center' to={'/projects'}>
                         <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 mr-2" width="44" height="44" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l14 0" /><path d="M5 12l4 4" /><path d="M5 12l4 -4" /></svg>
@@ -58,16 +66,16 @@ const SingleProject = () => {
                     </Link>
                 </div>
             </div>
-            <div className='py-20 min-h-screen flex'>
+            <div className='py-16 min-h-screen flex'>
                 <div className="container m-auto px-3">
-                    <div className="xl:w-2/3 mx-auto mt-10">
+                    <div className="xl:w-2/3 mx-auto">
                         <div className="flex flex-col lg:flex-row gap-10 items-center">
                             <div className='flex-shrink-0 lg:mb-0 -mb-[200px] relative z-10'>
                                 <div className="z-10 absolute w-full h-full bg-gradient-to-t from-black via-transparent to-transparent lg:hidden"></div>
-                                <img className='lg:w-[500px] relative z-0 pointer-events-none' src={`${basePath}${data.project.data.attributes.featured_image.data?.attributes.url}`} alt="" />
+                                <img className='lg:w-[500px] relative z-0 pointer-events-none' src={`${basePath}${data.project.data.attributes.featured_image.data?.attributes.formats.medium.url}`} alt="" />
                             </div>
                             <div className='relative z-20'>
-                                <h1 className='font-bold text-[90px] leading-none mb-5'>{data.project.data.attributes.title}</h1>
+                                <h1 className='font-bold text-[60px] lg:text-[90px] leading-none mb-5'>{data.project.data.attributes.title}</h1>
                                 <p className='text-lg leading-relaxed'>{data.project.data.attributes.description}</p>
                             </div>
                         </div>
@@ -110,4 +118,4 @@ const SingleProject = () => {
     )
 }
 
-export default SingleProject
+export default transition(SingleProject)

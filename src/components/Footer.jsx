@@ -26,7 +26,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 gap-5">
           <SocialLinks className="justify-center md:justify-start"/>
           <div className='text-primary md:text-xl text-center md:text-right'>
-            <a href="mailto:info@mail.com" className='hover:underline inline-flex space-x-2 items-center'>
+            <a href={`mailto:${data.contact.data.attributes.email}`} className='hover:underline inline-flex space-x-2 items-center'>
               <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 md:w-7 md:h-7" width="44" height="44" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" /><path d="M3 7l9 6l9 -6" /></svg>
               <span>{data.contact.data.attributes.email}</span>
             </a>

@@ -1,18 +1,17 @@
-import React, { useEffect } from 'react'
+import logo from '../assets/logo.svg'
+import { motion } from 'framer-motion'
 
-const Loading = ({ setLoading }) => {
-
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setLoading(false)
-        }, 4000)
-        return() => clearTimeout(timer)
-    })
-
+const Loading = () => {
     return (
-        <div className='bg-black fixed w-full h-full z-50 flex'>
-            <span className='m-auto text-[200px]'>Loading</span>
-        </div>
+        <motion.div
+            key='loader'
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className='bg-black fixed w-full h-full z-[100] flex'
+        >
+            <img src={logo} alt="logo" className='m-auto w-[120px]'/>
+        </motion.div>
     )
 }
 

@@ -3,10 +3,12 @@ import Featured from '../components/Featured'
 import About from '../components/About'
 import Welcome from '../components/Welcome'
 import { gql, useQuery } from '@apollo/client'
+import { motion } from 'framer-motion'
+import transition from '../transition'
 
 const FETCHDATA = gql`
-  query getData($projectId: ID) {
-    project(id: $projectId){
+  query getData{
+    projects(sort: "createdAt:desc"){
       data {
         id
         attributes {
@@ -47,20 +49,20 @@ const Home = () => {
     startSection.current.scrollIntoView({ behavior: "smooth" });
   }
   
-  const { loading, error, data } = useQuery(FETCHDATA, {
-    variables: { projectId: 7 }
-  })
+  const { loading, error, data } = useQuery(FETCHDATA)
   
   if (loading) return <p>Loading...</p>
   if (error) return <p>Error :(</p>
-  
+
+  const latestProject = data.projects.data[0];
+
   return (
     <>
         <Welcome data={data} scrollToStart={scrollToStart} />
-        <Featured data={data} startSection={startSection}/>
+        <Featured latestProject={latestProject} startSection={startSection}/>
         <About data={data}/>
     </>
   )
 }
 
-export default Home
+export default transition(Home)
