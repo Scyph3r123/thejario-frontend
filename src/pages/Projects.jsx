@@ -38,14 +38,9 @@ const Projects = () => {
   const { loading, error, data } = useQuery(PROJECTS)
   if (loading) return <p>Loading...</p>
   if (error) return <p>Error :(</p>
-  
+
   return (
     <>
-      <Helmet>
-        <title>Theja Rio Projects</title>
-        <meta name="description" content="Welcome to Theja Rio's projects page. Browse through a list of projects successfully undertaken and completed by Theja Rio." />
-        <meta name="keywords" content="Writer, Director, Nagaland, Short Films, Film festivals, Portfolio, Films" />
-      </Helmet>
       <div
         key='projects'
         initial={{ opacity: 0, transition:{ duration: 2 } }}

@@ -52,12 +52,6 @@ const SingleProject = () => {
 
     return (
         <>
-            <Helmet>
-                <title>Theja Rio: {data.project.data.attributes.title}</title>
-                meta
-                <meta name="description" content={data.project.data.attributes.description} />
-                <meta name="keywords" content="Short Film, Theja Rio, Film Details, Project Details" />
-            </Helmet>
             <div className="pt-[100px]">
                 <div className="container mx-auto px-3">
                     <Link className='font-medium text-primary inline-flex items-center' to={'/projects'}>
