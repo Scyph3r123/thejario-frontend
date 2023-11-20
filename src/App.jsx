@@ -4,6 +4,7 @@ import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import basePath from './assets/basepath'
 import { AnimatePresence } from 'framer-motion'
 import { Helmet } from 'react-helmet'
+import ErrorPage from './pages/ErrorPage';
 
 //apollo client
 const client = new ApolloClient({
@@ -45,6 +46,7 @@ function App() {
           <Route index element={<Home/>} />
           <Route path="/projects" element={<Projects/>}/>
           <Route path="/projects/:id" element={<SingleProject/>} />
+          <Route path='*' element={<ErrorPage/>} />
         </Routes>
       </AnimatePresence>
       <Menu key='menuModal' closeMenu={closeMenu} menuActive={menuActive}/>

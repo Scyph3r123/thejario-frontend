@@ -4,13 +4,12 @@ import basePath from '../assets/basepath'
 import { motion } from 'framer-motion';
 //Swiper Scripts
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+import { Navigation, Pagination } from 'swiper/modules';
 // Swiper Styles
 import 'swiper/scss';
 import 'swiper/scss/navigation';
 import 'swiper/scss/pagination';
 import transition from '../transition'
-import { Helmet } from 'react-helmet';
 
 const PROJECTS = gql`
   query GetProjects {

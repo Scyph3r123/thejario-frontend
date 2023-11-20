@@ -4,6 +4,7 @@ import { Link, useParams } from 'react-router-dom'
 import basePath from '../assets/basepath'
 import transition from '../transition'
 import { Helmet } from 'react-helmet'
+import ErrorPage from './ErrorPage'
 
 const PROJECT = gql`
     query GetProject($projectId: ID) {
@@ -49,6 +50,8 @@ const SingleProject = () => {
     const currentIndex = projectIds.indexOf(id);
     const nextProjectId = currentIndex < projectIds.length - 1 ? projectIds[currentIndex + 1] : null
     const previousProjectId = currentIndex > 0 ? projectIds[currentIndex - 1] : null
+    
+    if (data.project.data == null) return <ErrorPage/> // return 404 page when project id is not found
 
     return (
         <>
